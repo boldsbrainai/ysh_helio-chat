@@ -25,12 +25,19 @@ function checkFile(filePath) {
   while ((match = regex.exec(content)) !== null) {
     const start = match.index;
     const end = regex.lastIndex;
-    const snippet = content.substring(start, end + 200); // read some context
+    const snippet = content.substring(start, end + 500); // read more context
     if (
       !/aria-label=\"[\s\S]*?\"/.test(snippet) &&
-      !/aria-label=\'{[\s\S]*?}\'/.test(snippet)
+      !/aria-label=\'{[\s\S]*?}\'/.test(snippet) &&
+      !/aria-label=\{`[\s\S]*?`\}/.test(snippet)
     ) {
-      errors.push({ file: filePath, snippet: snippet.trim().split("\n")[0] });
+      const lines = content.substring(0, start).split("\n");
+      const lineNumber = lines.length;
+      errors.push({
+        file: filePath,
+        line: lineNumber,
+        snippet: snippet.trim().substring(0, 300),
+      });
     }
   }
   return errors;
@@ -45,7 +52,8 @@ files.forEach((file) => {
 if (allErrors.length) {
   console.error("Found icon-only Button instances without aria-label:");
   allErrors.forEach((err) => {
-    console.error(` - ${err.file}: ${err.snippet}`);
+    console.error(` - ${err.file}:${err.line}`);
+    console.error(`   ${err.snippet.substring(0, 150)}`);
   });
   process.exit(1);
 } else {

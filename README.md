@@ -156,9 +156,90 @@ Specialized widgets for solar energy domain:
 
 See [OpenAI Integration Guide](docs/OPENAI_INTEGRATION.md) for production setup.
 
+## 🚀 Deploy to Production
+
+### Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/ysh_helio-chat)
+
+1. **Push to GitHub**
+
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/ysh_helio-chat.git
+   git push -u origin main
+   ```
+
+2. **Connect to Vercel**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Import your GitHub repository
+   - Configure build settings:
+     - **Build Command**: `npm run build`
+     - **Output Directory**: `dist`
+     - **Install Command**: `npm install`
+
+3. **Set Environment Variables**
+
+   Add these in Vercel Dashboard → Settings → Environment Variables:
+
+   ```env
+   VITE_OPENAI_API_KEY=sk-proj-your-key
+   VITE_OPENAI_CHATKIT_ENABLED=true
+   VITE_OPENAI_WORKFLOW_ID=wf_your-workflow
+   VITE_MAPTILER_API_KEY=your-maptiler-key
+   ```
+
+4. **Deploy**
+   - Click "Deploy"
+   - Your app will be live at `https://your-project.vercel.app`
+
+### Netlify
+
+1. Build settings:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist`
+
+2. Add environment variables in Site Settings → Environment Variables
+
+3. Deploy via Git or drag-and-drop `dist/` folder
+
+### Security Checklist
+
+- ✅ Never commit `.env` file (already in `.gitignore`)
+- ✅ Use environment variables for all API keys
+- ✅ Set `VITE_*` prefix for frontend-safe variables only
+- ✅ Backend secrets (`GITHUB_CLIENT_SECRET`, `VITE_STRIPE_SECRET_KEY`) should **never** use `VITE_` prefix
+- ✅ Enable HTTPS on production domain
+- ✅ Configure CORS for backend API routes
+- ✅ Set rate limiting on OpenAI API dashboard
+
+### CI/CD Status
+
+![CI Pipeline](https://github.com/YOUR_USERNAME/ysh_helio-chat/workflows/CI%20Pipeline/badge.svg)
+
+Automated checks run on every PR:
+
+- ✅ Linting (`npm run lint`)
+- ✅ Icon accessibility audit (`npm run check:icon-aria`)
+- ✅ Build validation
+- ✅ E2E tests (Cypress)
+
+## 📊 Project Context
+
+This project was bootstrapped with GitHub Spark (commit SHA: `7e96c39d1f876e695e915548d2fcb5e2a41ef379`).
+
+The Spark framework provides:
+
+- Seamless GitHub integration for AI-powered development
+- State management via `useKV` hook (no React Router needed)
+- Icon import proxy for Phosphor icons
+- Optimized Vite plugin pipeline
+
+**Important**: Do **not** remove `sparkPlugin()` or `createIconImportProxy()` from `vite.config.ts` - they are essential for the build process.
+
 ## 🌍 Brazilian Solar Energy Context
 
 This platform is specifically designed for the Brazilian market:
+
 - Portuguese language interface
 - Brazilian Real (R$) currency
 - Local energy regulations and standards
@@ -176,6 +257,7 @@ Contributions are welcome! Please read our contributing guidelines before submit
 ## 📧 Support
 
 For issues or questions:
+
 1. Check the [OpenAI Integration Guide](docs/OPENAI_INTEGRATION.md)
 2. Review [GitHub Issues](../../issues)
 3. Visit [OpenAI Community Forum](https://community.openai.com)
