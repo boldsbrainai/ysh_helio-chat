@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "S2A_MSIL2A_20251120T132231_N0511_R038_T23KPQ_20251120T171245",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-46.5, -23.5],
+            [-46.5, -22.5],
+            [-45.5, -22.5],
+            [-45.5, -23.5],
+            [-46.5, -23.5]
+          ]
+        ]
+      },
+      "properties": {
+        "datetime": "2025-11-20T13:22:31Z",
+        "platform": "sentinel-2a",
+        "instruments": ["msi"],
+        "constellation": "sentinel-2",
+        "eo:cloud_cover": 12.5,
+        "view:sun_azimuth": 45.2,
+        "view:sun_elevation": 65.8,
+        "proj:epsg": 32723
+      },
+      "assets": {
+        "thumbnail": {
+          "href": "https://example.com/thumb.jpg",
+          "type": "image/jpeg"
+        },
+        "visual": {
+          "href": "https://example.com/visual.tif",
+          "type": "image/tiff; application=geotiff"
+        }
+      }
+    }
+  ]
+}

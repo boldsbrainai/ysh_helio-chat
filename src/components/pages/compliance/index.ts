@@ -1,0 +1,5 @@
+export { ReleaseNotesPage } from "./ReleaseNotesPage"
+export { TermsPage } from "./TermsPage"
+export { BugReportPage } from "./BugReportPage"
+export { DownloadsPage } from "./DownloadsPage"
+export { KeyboardShortcutsPage } from "./KeyboardShortcutsPage"

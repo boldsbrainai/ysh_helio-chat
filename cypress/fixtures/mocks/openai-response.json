@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-mock-12345",
+  "object": "chat.completion",
+  "created": 1732540800,
+  "model": "gpt-4o",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Olá! Sou o Hélio, seu copiloto solar especializado em dimensionamento fotovoltaico para o Brasil.\n\nPara dimensionar seu sistema solar, preciso de algumas informações:\n\n1. **CEP** do local de instalação (para calcular irradiação solar)\n2. **Consumo mensal médio** em kWh (encontra na conta de luz)\n3. **Fase elétrica** (monofásica, bifásica ou trifásica)\n\nCom esses dados, posso calcular:\n- Tamanho ideal do sistema (kWp)\n- Quantidade de painéis necessários\n- Tipo de inversor recomendado\n- Economia mensal estimada\n- Payback e ROI em 25 anos\n\nPodemos começar?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 120,
+    "completion_tokens": 180,
+    "total_tokens": 300
+  }
+}

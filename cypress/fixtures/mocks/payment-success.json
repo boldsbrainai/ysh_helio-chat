@@ -1,0 +1,22 @@
+{
+  "id": "pay_mock_123abc",
+  "status": "succeeded",
+  "amount": 2500000,
+  "currency": "brl",
+  "customer": {
+    "id": "cus_mock_456def",
+    "email": "cliente@example.com",
+    "name": "João Silva"
+  },
+  "payment_method": {
+    "type": "credit_card",
+    "brand": "visa",
+    "last4": "4242"
+  },
+  "created_at": "2025-11-25T12:00:00Z",
+  "metadata": {
+    "system_size_kwp": "5.5",
+    "plan_type": "balanced",
+    "financing_term": "60"
+  }
+}
