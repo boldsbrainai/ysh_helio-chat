@@ -1,5 +1,9 @@
 # Yello Solar Hub ☀️
 
+![CI Pipeline](https://github.com/own-boldsbrain/ysh_helio-chat/workflows/CI%20Pipeline/badge.svg)
+![Build Status](https://img.shields.io/github/actions/workflow/status/own-boldsbrain/ysh_helio-chat/ci.yml?branch=main&label=build)
+![License](https://img.shields.io/github/license/own-boldsbrain/ysh_helio-chat)
+
 > **AI-powered solar energy management platform for Brazil**
 
 An intelligent chat interface combining GitHub Spark and OpenAI technologies to provide comprehensive solar energy analysis, equipment recommendations, and financing solutions tailored for the Brazilian market.
