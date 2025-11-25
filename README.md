@@ -29,7 +29,7 @@ An intelligent chat interface combining GitHub Spark and OpenAI technologies to 
 ### Installation
 
 1. **Clone the repository**
-2. 
+2.
    ```bash
    git clone <repository-url>
    cd chatgpt-mirror
@@ -44,15 +44,15 @@ An intelligent chat interface combining GitHub Spark and OpenAI technologies to 
    ```bash
    cp .env.example .env
    ```
-   
+
    Edit `.env` and add your OpenAI API key:
    ```bash
    VITE_OPENAI_API_KEY=sk-proj-...
-   
+
    # Optional: Enable ChatKit
    VITE_OPENAI_CHATKIT_ENABLED=true
    VITE_OPENAI_WORKFLOW_ID=wf_...
-   
+
    # Optional: Enable voice features
    VITE_OPENAI_WHISPER_ENABLED=true
    ```
@@ -64,6 +64,56 @@ An intelligent chat interface combining GitHub Spark and OpenAI technologies to 
 
 6. **Open your browser**
    Navigate to `http://localhost:5173`
+
+## 🧪 Testing
+
+### Running Tests
+
+This project includes comprehensive test coverage for all API endpoints. To run the tests:
+
+```bash
+# Run all tests
+npm test
+
+# Run specific test suites
+npm run test:unit          # Unit tests
+npm run test:integration   # Integration tests
+npm run test:e2e          # End-to-end tests
+npm run test:coverage     # Coverage report
+npm run test:watch        # Run tests in watch mode
+
+# Run the comprehensive API test suite
+bash scripts/run-api-tests.sh
+```
+
+### Test Coverage
+
+The test suite includes:
+
+- **Unit Tests**: Individual function and component tests
+- **Integration Tests**: API endpoint functionality with dependencies
+- **End-to-End Tests**: Complete workflow scenarios
+- **API Tests**: Testing all serverless API endpoints (PVGIS, NASA POWER, ANEEL)
+  - `/api/pvgis/calculate` - Solar production calculations
+  - `/api/pvgis/irradiation` - Irradiation data
+  - `/api/nasa/climate` - Climate data
+  - `/api/nasa/irradiation` - NASA irradiation data
+  - `/api/aneel/tariffs` - Energy tariff information
+  - `/api/aneel/distribuidoras` - Energy distributors list
+
+### Test Structure
+
+```
+__tests__/
+├── unit/                 # Unit tests
+├── integration/
+│   └── api/             # API integration tests
+│       ├── pvgis/
+│       ├── nasa/
+│       └── aneel/
+└── e2e/
+    └── api/             # End-to-end API workflows
+```
 
 ## 🏗️ Project Structure
 
@@ -98,6 +148,9 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
 npm run lint     # Run ESLint
+npm test         # Run test suite
+npm run test:watch # Run tests in watch mode
+npm run test:coverage # Generate coverage report
 ```
 
 ## 🔧 Tech Stack
@@ -135,7 +188,7 @@ Add voice input to any component:
 ```tsx
 import { VoiceAgent } from '@/components/VoiceAgent'
 
-<VoiceAgent 
+<VoiceAgent
   onTranscription={(text) => console.log(text)}
   showTranscript={true}
 />
@@ -226,6 +279,7 @@ Automated checks run on every PR:
 - ✅ Icon accessibility audit (`npm run check:icon-aria`)
 - ✅ Build validation
 - ✅ E2E tests (Cypress)
+- ✅ API tests (comprehensive 360° coverage)
 
 ## 📊 Project Context
 
