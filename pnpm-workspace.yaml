@@ -1,3 +1,8 @@
+allowBuilds:
+  '@swc/core': true
+  core-js: true
+  cypress: true
+  esbuild: true
 onlyBuiltDependencies:
   - '@swc/core'
   - cypress
